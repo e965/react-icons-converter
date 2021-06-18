@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "lib": ["esnext", "dom"],
+        "outDir": "lib",
+        "target": "es5",
+        "sourceMap": true,
+        "declaration": true,
+        "esModuleInterop": true
+    },
+    "include": ["src"],
+    "exclude": ["**/*.spec.ts", "**/*.test.ts"]
+}

@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "**/node_modules": true
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.eol": "\r\n",
+
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}
