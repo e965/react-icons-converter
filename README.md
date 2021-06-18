@@ -2,15 +2,15 @@
 
 SVG icon converter to format required for use with [react-icons](https://www.npmjs.com/package/react-icons) package.
 
-Inspired by [matthova](https://github.com/matthova)'s [react-icons-json-generator](https://github.com/matthova/react-icons-converter) ([github](https://github.com/matthova/react-icons-converter)). The source code was taken from this project and modified.
+Inspired by [matthova](https://github.com/matthova)'s [react-icons-json-generator](https://github.com/matthova/react-icons-converter) ([github](https://github.com/matthova/react-icons-converter)). To be honest, the source code was taken from this project and modified.
 
 ¯\\_(ツ)_/¯
 
-## Installation
+### Installation
 
 -   `npm i react-icons-converter`
 
-## Usage example
+### Usage example
 
 ```js
 import { GenIcon } from 'react-icons';
