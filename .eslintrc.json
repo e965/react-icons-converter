@@ -7,9 +7,11 @@
     "plugins": ["@typescript-eslint"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "tsconfig.json",
+        "tsconfigRootDir": "."
     },
-    "ignorePatterns": ["lib/*.**"],
+    "ignorePatterns": ["lib/", "playground/"],
     "rules": {
         "@typescript-eslint/naming-convention": ["off"]
     }
