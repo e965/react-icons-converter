@@ -1,7 +1,7 @@
 {
     "name": "react-icons-converter",
     "description": "SVG icon converter to format required for use with react-icons package",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "type": "module",
     "author": "Dmitry <dmitry@cojam.ru> (https://e965.ru)",
     "repository": "https://github.com/e965/react-icons-converter.git",
