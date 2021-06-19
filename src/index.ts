@@ -1,16 +1,9 @@
 import { parse as parseXML } from 'fast-xml-parser';
 import type { X2jOptions as XMLParserOptionsType } from 'fast-xml-parser';
 
-import camelCase from 'camelcase';
+import type { IconTree as IconTreeType } from 'react-icons-lib-only';
 
-// from react-icons/IconBase.d.ts
-export type IconTreeType = {
-    tag: string;
-    attr: {
-        [key: string]: string;
-    };
-    child: IconTreeType[];
-};
+import camelCase from 'camelcase';
 
 export const createIconTreeFromSVG = (svgSource: string, isMultiColor: boolean): IconTreeType => {
     const XMLParserOptions: Partial<XMLParserOptionsType> = {

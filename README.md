@@ -22,3 +22,7 @@ const IconTree = createIconTreeFromSVG(SVGSource);
 
 export const Icon = GenIcon(IconTree);
 ```
+
+### See also
+
+-   [react-icons-lib-only](https://github.com/e965/react-icons-lib-only)
