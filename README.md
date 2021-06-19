@@ -2,7 +2,7 @@
 
 SVG icon converter to format required for use with [react-icons](https://www.npmjs.com/package/react-icons) package.
 
-Inspired by [matthova](https://github.com/matthova)'s [react-icons-json-generator](https://github.com/matthova/react-icons-converter) ([github](https://github.com/matthova/react-icons-converter)). To be honest, the source code was taken from this project and modified.
+The source code was taken from [react-icons/logics.js](https://github.com/react-icons/react-icons/blob/master/packages/react-icons/scripts/logics.js) file and modified. The package name inspired by [react-icons-converter](https://github.com/matthova/react-icons-converter.sh).
 
 ¯\\_(ツ)_/¯
 

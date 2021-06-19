@@ -12,7 +12,7 @@ export type IconTreeType = {
     child: IconTreeType[];
 };
 
-export const createIconTreeFromSVG = (svgSource: string): IconTreeType => {
+export const createIconTreeFromSVG = (svgSource: string, isMultiColor: boolean): IconTreeType => {
     const XMLParserOptions: Partial<XMLParserOptionsType> = {
         ignoreAttributes: false,
         attributeNamePrefix: '',
@@ -44,11 +44,13 @@ export const createIconTreeFromSVG = (svgSource: string): IconTreeType => {
 
                 switch (NewAttributeName) {
                     case 'fill': {
-                        if (AttributeValue === 'none') {
+                        if (AttributeValue === 'none' || AttributeValue === 'currentColor' || isMultiColor) {
                             attrObject[NewAttributeName] = AttributeValue;
                         }
                         break;
                     }
+                    case 'pId':
+                        break;
                     default: {
                         attrObject[NewAttributeName] = AttributeValue;
                         break;
