@@ -68,7 +68,7 @@ export const createIconTreeFromSVG = (svgSource: string, isMultiColor: boolean):
             return {
                 tag: nodeName,
                 attr: createTreeAttrObject(svgObject[XMLParserOptionForAttr] ?? {}, nodeName),
-                child: childrenKeys.map(key => createTreeFromSVGObject(svgObject[key], key)),
+                child: childrenKeys.flatMap(key => createTreeFromSVGObject(svgObject[key], key)),
             };
         });
     };
