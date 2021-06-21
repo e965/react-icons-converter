@@ -13,6 +13,7 @@ export const createIconTreeFromSVG = (svgSource: string, isMultiColor: boolean):
         textNodeName: '#text',
         allowBooleanAttributes: true,
         trimValues: false,
+        arrayMode: true,
     };
 
     const XMLParserOptionForAttr = String(XMLParserOptions.attrNodeName ?? '');
@@ -54,21 +55,25 @@ export const createIconTreeFromSVG = (svgSource: string, isMultiColor: boolean):
             }, {});
     };
 
-    const createTreeFromSVGObject = (svgObject: typeof SVGObject, nodeName: string): IconTreeType => {
-        let childrenKeys = Object.keys(svgObject).filter(key => {
-            return !['style', XMLParserOptionForAttr, XMLParserOptionForText, 'defs', 'use'].includes(key);
+    const createTreeFromSVGObject = (svgObjects: typeof SVGObject, nodeName: string): IconTreeType[] => {
+        return svgObjects.map((svgObject: typeof SVGObject) => {
+            let childrenKeys = Object.keys(svgObject).filter(key => {
+                return !['style', XMLParserOptionForAttr, XMLParserOptionForText, 'defs', 'use'].includes(key);
+            });
+
+            // put at the end of the array of keys
+            if (svgObject.defs) childrenKeys = [...childrenKeys, 'defs'];
+            if (svgObject.use) childrenKeys = [...childrenKeys, 'use'];
+
+            return {
+                tag: nodeName,
+                attr: createTreeAttrObject(svgObject[XMLParserOptionForAttr] ?? {}, nodeName),
+                child: childrenKeys.map(key => createTreeFromSVGObject(svgObject[key], key)),
+            };
         });
-
-        // put at the end of the array of keys
-        if (svgObject.defs) childrenKeys = [...childrenKeys, 'defs'];
-        if (svgObject.use) childrenKeys = [...childrenKeys, 'use'];
-
-        return {
-            tag: nodeName,
-            attr: createTreeAttrObject(svgObject[XMLParserOptionForAttr] ?? {}, nodeName),
-            child: childrenKeys.map(key => createTreeFromSVGObject(svgObject[key], key)),
-        };
     };
 
-    return createTreeFromSVGObject(SVGObject[SVGObjectRootNodeName], SVGObjectRootNodeName);
+    const TreeFromSVGObject = createTreeFromSVGObject(SVGObject[SVGObjectRootNodeName], SVGObjectRootNodeName);
+
+    return TreeFromSVGObject[0];
 };
